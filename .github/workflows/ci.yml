@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+      - run: mvn -B -ntp clean verify
+      - name: Coverage summary
+        if: always()
+        run: |
+          f=core/target/site/jacoco/jacoco.csv
+          [ -f "$f" ] || exit 0
+          awk -F, 'NR>1{m+=$4;c+=$5} END{printf "### core line coverage: %.1f%%\n", 100*c/(m+c)}' "$f" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jacoco
+          path: core/target/site/jacoco

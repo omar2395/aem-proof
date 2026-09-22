@@ -1,6 +1,8 @@
+//== Main content container (the editable responsive grid inside the template)
 
-//== Container main content style, used on page template
-
-main.container {
-    padding: .5em 1em;
+.root > .cmp-container > .container {
+    width: 100%;
+    max-width: $container;
+    margin-inline: auto;
+    padding: clamp(2rem, 6vw, 4.5rem) $gutter 4rem;
 }

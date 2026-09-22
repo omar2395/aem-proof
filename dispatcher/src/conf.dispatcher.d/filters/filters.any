@@ -11,3 +11,9 @@ $include "./default_filters.any"
 
 # Allow manifest.webmanifest files located in the content
 /0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+
+# AEM Proof — offers grid JSON export (Sling Model exporter) for headless consumers
+/0300 { /type "allow" /method "GET" /url "/content/aemproof/*" /selectors "model" /extension "json" }
+
+# AEM Proof — never expose the api-status internals as JSON on publish
+/0301 { /type "deny" /url "/content/aemproof/*.api-status.json" }

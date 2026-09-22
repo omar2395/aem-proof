@@ -1,16 +1,19 @@
+//== Site footer (Experience Fragment placed by the page-content template)
 
-//== XF Footer style, used on page template
+.experiencefragment-footer,
+.experiencefragment.footer {
+    margin-top: auto;
+    border-top: 1px solid $line;
+    color: $ink-soft;
+    font-size: $fs-caption;
 
-footer.experiencefragment {
-    padding: .5em 1em;
-    border-top: 1px solid $color-foreground;
-
-    @media (prefers-color-scheme: dark) {
-        border-color: $color-foreground-dark;
+    .cmp-container {
+        max-width: $container;
+        margin-inline: auto;
+        padding: 1.5rem $gutter 2.5rem;
     }
 
-    .cmp-separator__horizontal-rule {
+    p {
         margin: 0;
-        border: 0;
     }
 }

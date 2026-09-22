@@ -22,6 +22,11 @@ module.exports = env => {
             })
         ],
         devServer: {
+            // Serve fonts at the path AEM will serve them from, and the mock's photos.
+            static: [
+                { directory: path.resolve(__dirname, 'dist/clientlib-site'), publicPath: '/etc.clientlibs/aemproof/clientlibs/clientlib-site/resources' },
+                { directory: path.resolve(__dirname, SOURCE_ROOT + '/static'), publicPath: '/' }
+            ],
             proxy: [{
                 context: ['/content', '/etc.clientlibs'],
                 target: 'http://localhost:4502',

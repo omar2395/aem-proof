@@ -1,9 +1,61 @@
-.cmp-navigation {}
-.cmp-navigation__group {}
-.cmp-navigation__item {}
-.cmp-navigation__item--active {}
-// .cmp-navigation__item--level-0 {}
-.cmp-navigation__item--level-0:hover > .cmp-navigation__group {
-  background: #ECECEC;
+.cmp-navigation__group {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.25rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
-.cmp-navigation__item-link {}
+
+.cmp-navigation__item-link {
+    position: relative;
+    color: rgba($paper, .85);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: $fs-small;
+    padding-block: .35rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        height: 2px;
+        background: $saffron;
+        transform: scaleX(0);
+        transform-origin: var(--nav-origin, 100% 50%);
+        transition: transform .35s $ease-out;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: $paper;
+
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+}
+
+.cmp-navigation__item--active > .cmp-navigation__item-link {
+    color: $paper;
+
+    &::after {
+        transform: scaleX(1);
+    }
+}
+
+html:lang(ar) .cmp-navigation__item-link {
+    --nav-origin: 100% 50%;
+}
+
+html:not(:lang(ar)) .cmp-navigation__item-link {
+    --nav-origin: 0 50%;
+}

@@ -1,0 +1,263 @@
+//== Offers grid + offer card
+// Signature element: the saffron price tag, hung from a punched hole on the image corner.
+
+.cmp-offers-grid {
+    margin-block: 0 2.5rem;
+
+    &--empty {
+        padding: 3rem $gutter;
+        text-align: center;
+        color: $ink-soft;
+        border: 1px dashed $line;
+        border-radius: $radius;
+        background: $paper-deep;
+    }
+}
+
+.cmp-offers-grid__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+
+    @media (min-width: 900px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(0, auto);
+    }
+}
+
+.cmp-offers-grid__item {
+    min-width: 0;
+    opacity: 0;
+    transform: translateY(18px) scale(.985);
+    transition:
+        opacity .6s $ease-out,
+        transform .7s $ease-out;
+
+    &.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+    // The week's headline offer: the first card takes the top row's width on desktop.
+    @media (min-width: 900px) {
+        &:first-child {
+            grid-column: span 2;
+
+            .cmp-offer {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                min-height: 100%;
+            }
+
+            .cmp-offer__media {
+                aspect-ratio: auto;
+                min-height: 100%;
+            }
+
+            .cmp-offer__title {
+                font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+            }
+
+            .cmp-offer__body {
+                padding: clamp(1.5rem, 3vw, 2.5rem);
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// Stagger via the data-index the HTL prints on each item
+@for $i from 0 through 11 {
+    .cmp-offers-grid__item[data-index='#{$i}'] {
+        transition-delay: #{$i * 70}ms;
+    }
+}
+
+.cmp-offer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #fff;
+    border-radius: $radius;
+    overflow: visible;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, .6) inset,
+        0 1px 2px rgba($ink, .06),
+        0 12px 30px -18px rgba($teal-deep, .35);
+    transition: transform .5s $ease-out, box-shadow .5s $ease-out;
+
+    &:hover,
+    &:focus-within {
+        transform: translateY(-4px);
+        box-shadow:
+            0 1px 0 rgba(255, 255, 255, .6) inset,
+            0 2px 4px rgba($ink, .06),
+            0 26px 48px -20px rgba($teal-deep, .45);
+
+        .cmp-offer__tag {
+            transform: rotate(var(--tag-rest-angle)) translateY(0);
+            animation: tag-swing 1.1s $ease-swing 1;
+        }
+
+        .cmp-offer__image {
+            transform: scale(1.04);
+        }
+    }
+}
+
+.cmp-offer__media {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: $radius $radius 0 0;
+    background: $paper-deep;
+
+    // Hero cards keep rounded corners on their short side too
+    .cmp-offers-grid__item:first-child & {
+        @media (min-width: 900px) {
+            border-radius: 0 $radius $radius 0;
+
+            html:lang(ar) & {
+                border-radius: $radius 0 0 $radius;
+            }
+        }
+    }
+}
+
+.cmp-offer__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s $ease-out;
+}
+
+// The tag: saffron, rotated a touch, with a punched hole it "hangs" from.
+.cmp-offer__tag {
+    --tag-rest-angle: -6deg;
+    position: absolute;
+    top: 1rem;
+    inset-inline-start: 1rem;
+    display: inline-flex;
+    align-items: baseline;
+    gap: .35rem;
+    padding: .55rem .9rem .5rem 1.6rem;
+    font-family: $font-mono;
+    font-weight: 600;
+    font-size: $fs-lead;
+    line-height: 1;
+    color: $ink;
+    background: $saffron;
+    border-radius: 6px 12px 12px 6px;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, .55) inset,
+        0 8px 18px -8px rgba($saffron-deep, .9);
+    transform: rotate(var(--tag-rest-angle));
+    transform-origin: .55rem 50%;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset-inline-start: .5rem;
+        top: 50%;
+        width: .5rem;
+        height: .5rem;
+        margin-top: -.25rem;
+        border-radius: 50%;
+        background: $paper-deep;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .25) inset;
+    }
+
+    html:lang(ar) & {
+        --tag-rest-angle: 6deg;
+        padding: .55rem 1.6rem .5rem .9rem;
+        border-radius: 12px 6px 6px 12px;
+        transform-origin: calc(100% - .55rem) 50%;
+    }
+
+    &--free {
+        font-family: $font-body;
+        font-weight: 600;
+        background: $mint;
+        color: #fff;
+        box-shadow:
+            0 1px 0 rgba(255, 255, 255, .35) inset,
+            0 8px 18px -8px rgba(darken($mint, 20%), .9);
+    }
+}
+
+.cmp-offer__currency {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: $fs-caption;
+    opacity: .8;
+}
+
+.cmp-offer__body {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1.15rem 1.25rem 1.25rem;
+}
+
+.cmp-offer__title {
+    font-size: $fs-h3;
+    line-height: 1.25;
+    text-wrap: balance;
+}
+
+.cmp-offer__valid {
+    margin: 0;
+    color: $ink-soft;
+    font-size: $fs-caption;
+
+    time {
+        font-family: $font-mono;
+        font-size: .95em;
+        color: $ink;
+    }
+}
+
+.cmp-offer__tags {
+    list-style: none;
+    margin: .35rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+}
+
+.cmp-offer__tagitem {
+    font-size: $fs-caption;
+    font-weight: 500;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    color: $teal;
+    background: $teal-tint;
+}
+
+@keyframes tag-swing {
+    0% {
+        transform: rotate(calc(var(--tag-rest-angle) * 1));
+    }
+
+    30% {
+        transform: rotate(calc(var(--tag-rest-angle) * -1.6));
+    }
+
+    60% {
+        transform: rotate(calc(var(--tag-rest-angle) * 1.5));
+    }
+
+    80% {
+        transform: rotate(calc(var(--tag-rest-angle) * .6));
+    }
+
+    100% {
+        transform: rotate(var(--tag-rest-angle));
+    }
+}

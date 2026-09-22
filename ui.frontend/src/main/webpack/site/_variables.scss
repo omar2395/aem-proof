@@ -1,18 +1,51 @@
+//== Design tokens — AEM Proof
+// Saudi retail signage palette: saffron on paper, deep teal for structure.
+// Every colour and size in the components derives from these.
 
-//== Font
+//-- Colour
+$ink:          #12130F;
+$ink-soft:     #4A4B45;
+$paper:        #FAF7F0;
+$paper-deep:   #F1ECE1;
+$saffron:      #E8A33D;
+$saffron-deep: #C4841F;
+$teal:         #0F4C5C;
+$teal-deep:    #0A3641;
+$teal-tint:    #E3EEF1;
+$mint:         #2FBF71;
+$ember:        #D64545;
+$line:         rgba(18, 19, 15, .12);
 
-$font-family:           "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-size:             16px;
-$font-height:           1.5;
+//-- Type
+$font-display: 'Readex Pro', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+$font-body:    'IBM Plex Sans Arabic', 'Readex Pro', system-ui, sans-serif;
+$font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
-//== Color
+$font-size:    17px;
+$font-height:  1.65;
 
-// Normal mode
-$color-foreground:      #202020;
-$color-background:      #ECECEC;
-$color-link:            #2020E0;
+// Arabic-safe scale: Readex Pro needs >= 13px to keep letter joins; nothing below 14 is used.
+$fs-caption:   .8235rem;   // 14px
+$fs-small:     .9412rem;   // 16px
+$fs-body:      1rem;       // 17px
+$fs-lead:      1.1765rem;  // 20px
+$fs-h3:        1.4118rem;  // 24px
+$fs-h1:        clamp(2.25rem, 1.4rem + 3.2vw, 4.25rem);
 
-// Dark mode
-$color-foreground-dark: invert($color-foreground);
-$color-background-dark: invert($color-background);
-$color-link-dark:       invert($color-link);
+//-- Layout
+$measure:      72ch;
+$gutter:       clamp(1rem, 4vw, 2.5rem);
+$container:    1200px;
+$radius:       18px;
+$radius-sm:    10px;
+
+//-- Motion
+$ease-out:     cubic-bezier(.22, 1, .36, 1);
+$ease-swing:   cubic-bezier(.34, 1.56, .64, 1);
+$dur:          .55s;
+
+//-- Legacy names kept for the archetype's base styles
+$font-family:          $font-body;
+$color-foreground:     $ink;
+$color-background:     $paper;
+$color-link:           $teal;

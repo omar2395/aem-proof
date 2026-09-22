@@ -8,3 +8,6 @@
 - `OffersGrid` Sling Model reading Content Fragments or the offers API, exported as JSON.
 - `offers-grid` and `api-status` components: dialogs, HTL, `ApiStatus` Sling Model.
 - Header Experience Fragment content, Arabic/English i18n dictionary, Arabic offers home page (ADR-0004).
+- Front-end design system in `ui.frontend`: tokens, self-hosted Arabic/Latin fonts, offers grid with hero card and price tag, API status instrument, RTL by language; static design preview.
+- Dispatcher filter and cache rules for offers pages and `model.json`.
+- JaCoCo 80 % line-coverage gate on `core` (currently 96.9 %).

@@ -1,27 +1,63 @@
 //== Base
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $font-size;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+// Right-to-left is a property of the language, not of a template override (ADR-0004).
+html:lang(ar) {
+    direction: rtl;
+}
+
 html,
 body {
     margin: 0;
-    font-size:   $font-size;
-    font-family: $font-family;
+    font-family: $font-body;
     line-height: $font-height;
-    color:       $color-foreground;
-    background:  $color-background;
+    color: $ink;
+    background: $paper;
+    -webkit-font-smoothing: antialiased;
+}
 
-    @media (prefers-color-scheme: dark) {
-        color:       $color-foreground-dark;
-        background:  $color-background-dark;
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // A faint paper grain keeps large flat areas from reading as a screenshot of a template.
+    background-image:
+        radial-gradient(1200px 600px at 85% -10%, rgba($saffron, .16), transparent 60%),
+        radial-gradient(900px 500px at -10% 30%, rgba($teal, .08), transparent 60%);
+    background-attachment: fixed;
+}
+
+a {
+    color: $teal;
+    text-decoration-thickness: .08em;
+    text-underline-offset: .18em;
+
+    &:hover {
+        color: $teal-deep;
     }
 }
 
+:focus-visible {
+    outline: 3px solid $saffron;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
 
-a {
-    color: $color-link;
-
-    @media (prefers-color-scheme: dark) {
-        color: $color-link-dark;
-    }
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 button,
@@ -30,4 +66,32 @@ optgroup,
 select,
 textarea {
     font: inherit;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $font-display;
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: 0; // never track Arabic
+}
+
+// Page frame produced by the Core Components page/container structure
+.root.container > .cmp-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+        scroll-behavior: auto !important;
+    }
 }

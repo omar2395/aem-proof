@@ -1,2 +1,9 @@
-.cmp-text {}
-.cmp-text__paragraph {}
+.cmp-text {
+    max-width: $measure;
+    font-size: $fs-body;
+}
+
+.cmp-text__paragraph,
+.cmp-text p {
+    margin-block: 0 1em;
+}

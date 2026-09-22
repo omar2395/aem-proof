@@ -5,3 +5,7 @@
 #
 
 $include "./default_rules.any"
+
+# AEM Proof — pages are cached; model.json is not, because offers may come from the live API
+/0300 { /glob "/content/aemproof/*.html" /type "allow" }
+/0301 { /glob "/content/aemproof/*.model.json" /type "deny" }

@@ -1,0 +1,19 @@
+<!--/* One offer card. Expects `offer` (com.aemproof.core.models.Offer) in scope. */-->
+<article class="cmp-offer">
+    <div class="cmp-offer__media">
+        <img class="cmp-offer__image" data-sly-test="${offer.image}" src="${offer.image @ context='uri'}" alt="${offer.title}" loading="lazy"/>
+        <span class="cmp-offer__tag" data-sly-test="${offer.price && offer.price != '0.00'}">
+            <bdi class="cmp-offer__price">${offer.price}</bdi>
+            <span class="cmp-offer__currency">${offer.currency}</span>
+        </span>
+        <span class="cmp-offer__tag cmp-offer__tag--free" data-sly-test="${offer.price == '0.00'}">${'offers.free' @ i18n}</span>
+    </div>
+    <div class="cmp-offer__body">
+        <h3 class="cmp-offer__title">${offer.title}</h3>
+        <p class="cmp-offer__valid" data-sly-test="${offer.validUntil}">
+            ${'offers.validUntil' @ i18n}
+            <time datetime="${offer.validUntil}">${offer.validUntil}</time>
+        </p>
+        <ul class="cmp-offer__tags" data-sly-list.tag="${offer.tags}"><li class="cmp-offer__tagitem">${tag}</li></ul>
+    </div>
+</article>

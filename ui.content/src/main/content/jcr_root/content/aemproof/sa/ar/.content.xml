@@ -2,14 +2,14 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        pageTitle="AEM Proof"
-        jcr:primaryType="cq:PageContent"
-        jcr:title="ar"
         cq:contextHubPath="/etc/cloudsettings/default/contexthub"
         cq:contextHubSegmentsPath="/etc/segmentation/contexthub"
         cq:template="/conf/aemproof/settings/wcm/templates/page-content"
-        sling:resourceType="aemproof/components/page"
-    >
+        jcr:language="ar"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="عروض هذا الأسبوع"
+        pageTitle="عروض هذا الأسبوع — AEM Proof"
+        sling:resourceType="aemproof/components/page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemproof/components/container"
@@ -19,59 +19,24 @@
                 sling:resourceType="aemproof/components/container">
                 <title
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="aemproof/components/title"/>
+                    sling:resourceType="aemproof/components/title"
+                    jcr:title="عروض هذا الأسبوع"
+                    type="h1"/>
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="aemproof/components/container"
                     layout="responsiveGrid">
-                    <teaser
-                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
+                    <offers_grid
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Epic Journey"
-                        sling:resourceType="aemproof/components/teaser"
-                        actionsEnabled="false"
-                        descriptionFromPage="false"
-                        textIsRich="true"
-                        titleFromPage="false">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="4"/>
-                        </cq:responsive>
-                    </teaser>
-                    <teaser_copy
-                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
+                        sling:resourceType="aemproof/components/offers-grid"
+                        source="cf"
+                        cfFolder="/content/dam/aemproof/offers"
+                        limit="{Long}6"
+                        fallbackText="لا توجد عروض حالياً"/>
+                    <api_status
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Epic Journey"
-                        sling:resourceType="aemproof/components/teaser"
-                        actionsEnabled="false"
-                        descriptionFromPage="false"
-                        textIsRich="true"
-                        titleFromPage="false">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="4"/>
-                        </cq:responsive>
-                    </teaser_copy>
-                    <teaser_copy_1579324932
-                        jcr:description="&lt;p>Don't stop half way, go for the top!&lt;/p>&#xd;&#xa;"
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Epic Journey"
-                        sling:resourceType="aemproof/components/teaser"
-                        actionsEnabled="false"
-                        descriptionFromPage="false"
-                        textIsRich="true"
-                        titleFromPage="false">
-                        <cq:responsive jcr:primaryType="nt:unstructured">
-                            <default
-                                jcr:primaryType="nt:unstructured"
-                                offset="0"
-                                width="4"/>
-                        </cq:responsive>
-                    </teaser_copy_1579324932>
+                        sling:resourceType="aemproof/components/api-status"
+                        label="ربط العروض"/>
                 </container>
             </container>
         </root>

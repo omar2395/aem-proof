@@ -1,0 +1,13 @@
+{
+  "offers.validUntil": "صالح حتى",
+  "offers.free": "مجاناً",
+  "offers.empty": "لا توجد عروض حالياً",
+  "apistatus.closed": "متصل",
+  "apistatus.open": "متوقف مؤقتاً",
+  "apistatus.half-open": "يحاول إعادة الاتصال",
+  "apistatus.lastSuccess": "آخر نجاح",
+  "apistatus.lastFailure": "آخر فشل",
+  "apistatus.failures": "إخفاقات متتالية",
+  "apistatus.cache": "من الذاكرة المؤقتة",
+  "&amp;copy; {0} AEM Proof Site. All rights reserved.": "&amp;copy; {0} AEM Proof. جميع الحقوق محفوظة."
+}

@@ -1,0 +1,13 @@
+{
+  "offers.validUntil": "Valid until",
+  "offers.free": "Free",
+  "offers.empty": "No offers right now",
+  "apistatus.closed": "Connected",
+  "apistatus.open": "Paused",
+  "apistatus.half-open": "Reconnecting",
+  "apistatus.lastSuccess": "Last success",
+  "apistatus.lastFailure": "Last failure",
+  "apistatus.failures": "Consecutive failures",
+  "apistatus.cache": "From cache",
+  "&amp;copy; {0} AEM Proof Site. All rights reserved.": "&amp;copy; {0} AEM Proof. All rights reserved."
+}

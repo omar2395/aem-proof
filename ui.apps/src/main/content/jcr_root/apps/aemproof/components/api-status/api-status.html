@@ -1,0 +1,21 @@
+<!--/* Renders com.aemproof.core.models.ApiStatus: the circuit breaker state of the offers API. */-->
+<div class="cmp-api-status cmp-api-status--${status.state}"
+     data-sly-use.status="com.aemproof.core.models.ApiStatus"
+     data-cmp-state="${status.state}"
+     role="status" aria-live="polite">
+    <span class="cmp-api-status__dot" aria-hidden="true"></span>
+    <span class="cmp-api-status__label" data-sly-test="${status.label}">${status.label}</span>
+    <span class="cmp-api-status__state">${status.stateKey @ i18n}</span>
+    <dl class="cmp-api-status__meta">
+        <dt>${'apistatus.lastSuccess' @ i18n}</dt>
+        <dd><time datetime="${status.lastSuccess}">${status.lastSuccess || '—'}</time></dd>
+        <dt>${'apistatus.lastFailure' @ i18n}</dt>
+        <dd><time datetime="${status.lastFailure}">${status.lastFailure || '—'}</time></dd>
+        <dt>${'apistatus.failures' @ i18n}</dt>
+        <dd>${status.consecutiveFailures}</dd>
+        <sly data-sly-test="${status.servedFromCache}">
+            <dt>${'apistatus.cache' @ i18n}</dt>
+            <dd>✓</dd>
+        </sly>
+    </dl>
+</div>

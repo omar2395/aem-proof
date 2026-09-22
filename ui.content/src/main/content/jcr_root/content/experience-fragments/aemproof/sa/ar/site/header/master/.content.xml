@@ -13,6 +13,12 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="aemproof/components/container"
             layout="simple">
+            <brand
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aemproof/components/text"
+                text="&lt;p&gt;&lt;a href=&quot;/content/aemproof/sa/ar.html&quot;&gt;عروض&lt;/a&gt;&lt;/p&gt;"
+                textIsRich="{Boolean}true"
+                id="site-brand"/>
             <navigation
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="aemproof/components/navigation"
@@ -20,15 +26,6 @@
                 navigationRoot="/content/aemproof/sa/ar"
                 skipNavigationRoot="false"
                 structureDepth="1"/>
-            <languagenavigation
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemproof/components/languagenavigation"
-                navigationRoot="/content/aemproof/sa"
-                structureDepth="2"/>
-            <search
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="aemproof/components/search"
-                searchRoot="/content/aemproof/sa"/>
         </root>
     </jcr:content>
 </jcr:root>

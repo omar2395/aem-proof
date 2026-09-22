@@ -1,0 +1,17 @@
+<!--/* Offers grid: renders com.aemproof.core.models.OffersGrid. The HTL never knows whether an
+       offer came from a Content Fragment or the API; that is the Sling Model's job. */-->
+<sly data-sly-use.grid="com.aemproof.core.models.OffersGrid"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.hasContent="${!grid.empty}"></sly>
+
+<section class="cmp-offers-grid" data-cmp-source="${grid.source}" data-sly-test="${hasContent}">
+    <ul class="cmp-offers-grid__list">
+        <li class="cmp-offers-grid__item" data-sly-repeat.offer="${grid.offers}" data-index="${offerList.index}">
+            <sly data-sly-include="card.html"></sly>
+        </li>
+    </ul>
+</section>
+
+<p class="cmp-offers-grid cmp-offers-grid--empty" data-sly-test="${!hasContent && grid.fallbackText}">${grid.fallbackText}</p>
+
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent && !grid.fallbackText, classAppend='cmp-offers-grid'}"></sly>

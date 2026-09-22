@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aemproof/clientlibs"/>
+    <filter root="/apps/aemproof/components"/>
+    <filter root="/apps/aemproof/i18n"/>
+    <filter root="/oak:index/diff.index"/>
+</workspaceFilter>

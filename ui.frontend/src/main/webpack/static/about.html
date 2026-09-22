@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8"/>
+    <title>عن المشروع — AEM Proof</title>
+    <meta name="template" content="page-content"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Static design preview of the AEM Proof offers page. Markup mirrors what the AEM components render; styles and scripts are the real clientlib-site."/>
+</head>
+<body class="page basicpage" id="page-about">
+<div class="root container responsivegrid">
+    <div class="cmp-container">
+
+        <!-- Template structure: header Experience Fragment (aemproof/components/experiencefragment) -->
+        <div class="experiencefragment experiencefragment-header">
+            <div class="cmp-experiencefragment cmp-experiencefragment--header">
+                <div class="cmp-container">
+                    <div class="text" id="site-brand"><div class="cmp-text"><p><a href="/">عروض</a></p></div></div>
+                    <div class="navigation">
+                        <nav class="cmp-navigation" aria-label="التنقل الرئيسي">
+                            <ul class="cmp-navigation__group">
+                                <li class="cmp-navigation__item cmp-navigation__item--level-0">
+                                    <a href="/" class="cmp-navigation__item-link">عروض هذا الأسبوع</a>
+                                </li>
+                                <li class="cmp-navigation__item cmp-navigation__item--level-0 cmp-navigation__item--active">
+                                    <a href="/about.html" aria-current="page" class="cmp-navigation__item-link">عن المشروع</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Template structure: main container -->
+        <div class="container responsivegrid">
+            <div class="cmp-container">
+                <div class="title">
+                    <div class="cmp-title"><h1 class="cmp-title__text">عن المشروع</h1></div>
+                </div>
+                <div class="container responsivegrid">
+                    <div class="cmp-container">
+                        <div class="text">
+                            <div class="cmp-text">
+                                <p class="cmp-text__lead">هذه الصفحة معاينة تصميم للواجهة الأمامية لمشروع <strong>AEM Proof</strong>: مشروع Adobe Experience Manager (Cloud Service) مكتمل، مبني بالـ Archetype الرسمي.</p>
+                                <p>ما تراه هنا هو مكتبة العميل (CSS/JS/الخطوط) نفسها الموجودة داخل حزمة AEM، مع ترميز HTML مطابق لما تُخرجه المكوّنات. لا يمكن تشغيل AEM بدون مؤسسة Adobe مرخّصة، لذلك الدليل الهندسي هو المستودع نفسه:</p>
+                                <ul class="cmp-text__list">
+                                    <li>مكوّن <code>offers-grid</code> بحوار تحرير وHTL وSling Model يقرأ من Content Fragments أو من REST API.</li>
+                                    <li>خدمة OSGi <code>OfferApiClient</code> بمهلة زمنية وذاكرة مؤقتة وقاطع دائرة، مختبرة بـ WireMock.</li>
+                                    <li>مكوّن <code>api-status</code> يعرض حالة الربط على الصفحة.</li>
+                                    <li>نموذج Content Fragment، رأس صفحة كـ Experience Fragment مثبّت في قالب قابل للتحرير، إعدادات حسب بيئة التشغيل، قواعد Dispatcher.</li>
+                                    <li>اختبارات وحدة بـ AEM Mocks، تغطية 96٪، محلّل Cloud Service، وCI أخضر على كل دفعة.</li>
+                                </ul>
+                                <p><a class="cmp-text__cta" href="https://github.com/omar2395/aem-proof" rel="noopener">المستودع على GitHub ←</a></p>
+                                <p>استنسخه وشغّل <code>mvn clean verify</code> بدون حساب Adobe. أضِفني إلى Adobe Admin Console لديك ويكون منشوراً على بيئة التطوير خلال ساعة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Template structure: footer Experience Fragment -->
+        <div class="experiencefragment experiencefragment-footer">
+            <div class="cmp-experiencefragment cmp-experiencefragment--footer">
+                <div class="cmp-container">
+                    <div class="text"><div class="cmp-text"><p>&copy; 2026 AEM Proof. جميع الحقوق محفوظة.</p></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

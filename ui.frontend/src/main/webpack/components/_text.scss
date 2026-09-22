@@ -7,3 +7,42 @@
 .cmp-text p {
     margin-block: 0 1em;
 }
+
+.cmp-text__lead {
+    font-size: $fs-lead;
+    font-weight: 500;
+}
+
+.cmp-text__list {
+    padding-inline-start: 1.25rem;
+    margin-block: 0 1.25rem;
+
+    li {
+        margin-block: .35rem;
+    }
+}
+
+.cmp-text code {
+    font-family: $font-mono;
+    font-size: .9em;
+    padding: .05em .35em;
+    border-radius: 4px;
+    background: $teal-tint;
+    color: $teal;
+}
+
+.cmp-text__cta {
+    display: inline-block;
+    padding: .65rem 1.1rem;
+    border-radius: 999px;
+    background: $teal;
+    color: $paper;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        background: $teal-deep;
+        color: $paper;
+    }
+}

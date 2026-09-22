@@ -23,11 +23,13 @@ fs.copyFileSync(path.join(dist, 'site.js'), path.join(clientlibOut, '..', 'clien
 fs.cpSync(path.join(dist, 'fonts'), path.join(clientlibOut, 'resources', 'fonts'), { recursive: true });
 fs.cpSync(path.join(staticDir, 'assets'), path.join(out, 'assets'), { recursive: true });
 
-let html = fs.readFileSync(path.join(staticDir, 'index.html'), 'utf8');
-html = html.replace('</head>',
-    '    <link rel="stylesheet" href="/etc.clientlibs/aemproof/clientlibs/clientlib-site.css">\n</head>')
-    .replace('</body>',
-    '    <script src="/etc.clientlibs/aemproof/clientlibs/clientlib-site.js"></script>\n</body>');
-fs.writeFileSync(path.join(out, 'index.html'), html);
+for (const page of ['index.html', 'about.html']) {
+    let html = fs.readFileSync(path.join(staticDir, page), 'utf8');
+    html = html.replace('</head>',
+        '    <link rel="stylesheet" href="/etc.clientlibs/aemproof/clientlibs/clientlib-site.css">\n</head>')
+        .replace('</body>',
+        '    <script src="/etc.clientlibs/aemproof/clientlibs/clientlib-site.js"></script>\n</body>');
+    fs.writeFileSync(path.join(out, page), html);
+}
 
 console.log('preview written to ' + out);

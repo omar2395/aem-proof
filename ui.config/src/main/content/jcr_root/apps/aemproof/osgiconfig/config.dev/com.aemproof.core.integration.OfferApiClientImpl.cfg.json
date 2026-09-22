@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://api-dev.example.com/offers",
+  "timeoutMs": 4000,
+  "cacheTtlSeconds": 60,
+  "failureThreshold": 3,
+  "cooldownSeconds": 30,
+  "apiKey": "$[secret:AEMPROOF_OFFERS_API_KEY]"
+}

@@ -1,0 +1,5 @@
+{"offers":[
+ {"id":"o1","title":"خصم ٢٠٪ على القهوة المختصة","price":"12.00","currency":"SAR","imageUrl":"/content/dam/aemproof/offers/images/coffee.jpg","validUntil":"2026-10-31","tags":["coffee","daily"]},
+ {"id":"o2","title":"توصيل مجاني فوق ١٠٠ ريال","price":"0.00","currency":"SAR","imageUrl":"/content/dam/aemproof/offers/images/delivery.jpg","validUntil":"2026-12-31","tags":["delivery"]},
+ {"id":"o3","title":"عرض العائلة","price":"89.00","currency":"SAR","imageUrl":"/content/dam/aemproof/offers/images/family.jpg","validUntil":"2026-11-15","tags":["family"]}
+]}

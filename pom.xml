@@ -518,6 +518,12 @@ Bundle-DocURL:
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.wiremock</groupId>
+        <artifactId>wiremock</artifactId>
+        <version>3.9.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>com.adobe.aem</groupId>
         <artifactId>aem-sdk-api</artifactId>
         <version>${aem.sdk.api}</version>

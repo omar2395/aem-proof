@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        jcr:primaryType="dam:AssetContent"
+        contentFragment="{Boolean}true">
+        <data
+            jcr:primaryType="nt:unstructured"
+            cq:model="/conf/aemproof/settings/dam/cfm/models/offer">
+            <master
+                jcr:primaryType="nt:unstructured"
+                title="بوكس رمضان الكامل"
+                price="{Double}149.0"
+                currency="SAR"
+                image="/content/dam/aemproof/offers/images/ramadan.jpg"
+                validUntil="{Date}2027-03-20T00:00:00.000+03:00"
+                tags="[ramadan,seasonal]"/>
+            <en
+                jcr:primaryType="nt:unstructured"
+                title="The full Ramadan box"
+                price="{Double}149.0"
+                currency="SAR"
+                image="/content/dam/aemproof/offers/images/ramadan.jpg"
+                validUntil="{Date}2027-03-20T00:00:00.000+03:00"
+                tags="[ramadan,seasonal]"/>
+        </data>
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            dam:title="The full Ramadan box"/>
+    </jcr:content>
+</jcr:root>

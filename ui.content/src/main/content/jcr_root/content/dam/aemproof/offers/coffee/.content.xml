@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        jcr:primaryType="dam:AssetContent"
+        contentFragment="{Boolean}true">
+        <data
+            jcr:primaryType="nt:unstructured"
+            cq:model="/conf/aemproof/settings/dam/cfm/models/offer">
+            <master
+                jcr:primaryType="nt:unstructured"
+                title="خصم ٢٠٪ على القهوة المختصة"
+                price="{Double}12.0"
+                currency="SAR"
+                image="/content/dam/aemproof/offers/images/coffee.jpg"
+                validUntil="{Date}2026-10-31T00:00:00.000+03:00"
+                tags="[coffee,daily]"/>
+            <en
+                jcr:primaryType="nt:unstructured"
+                title="20% off specialty coffee"
+                price="{Double}12.0"
+                currency="SAR"
+                image="/content/dam/aemproof/offers/images/coffee.jpg"
+                validUntil="{Date}2026-10-31T00:00:00.000+03:00"
+                tags="[coffee,daily]"/>
+        </data>
+        <metadata
+            jcr:primaryType="nt:unstructured"
+            dam:title="20% off specialty coffee"/>
+    </jcr:content>
+</jcr:root>

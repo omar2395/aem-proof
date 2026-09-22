@@ -1,0 +1,27 @@
+{
+  "cf": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "aemproof/components/offers-grid",
+    "source": "cf",
+    "cfFolder": "/content/dam/aemproof/offers",
+    "limit": 2,
+    "fallbackText": "لا توجد عروض حالياً"
+  },
+  "api": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "aemproof/components/offers-grid",
+    "source": "api",
+    "limit": 3,
+    "fallbackText": "لا توجد عروض حالياً"
+  },
+  "defaults": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "aemproof/components/offers-grid"
+  },
+  "missingFolder": {
+    "jcr:primaryType": "nt:unstructured",
+    "sling:resourceType": "aemproof/components/offers-grid",
+    "source": "cf",
+    "cfFolder": "/content/dam/aemproof/nope"
+  }
+}

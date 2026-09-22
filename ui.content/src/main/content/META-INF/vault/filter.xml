@@ -7,5 +7,6 @@
         <include pattern="/content/dam/aemproof/jcr:content(/.*)?"/>
     </filter>
     <filter root="/content/dam/aemproof/asset.jpg" mode="merge"/>
+    <filter root="/content/dam/aemproof/offers"/>
     <filter root="/content/experience-fragments/aemproof" mode="merge"/>
 </workspaceFilter>

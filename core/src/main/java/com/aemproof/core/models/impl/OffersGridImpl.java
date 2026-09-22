@@ -5,6 +5,7 @@ import com.aemproof.core.integration.OfferDto;
 import com.aemproof.core.models.Offer;
 import com.aemproof.core.models.OffersGrid;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +19,8 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Model(adaptables = SlingHttpServletRequest.class,
        adapters = OffersGrid.class,
@@ -28,6 +31,9 @@ public class OffersGridImpl implements OffersGrid {
 
     static final String RESOURCE_TYPE = "aemproof/components/offers-grid";
     static final int DEFAULT_LIMIT = 6;
+    /** Offers expire on the retailer's calendar day, not the server's. */
+    static final ZoneId BUSINESS_ZONE = ZoneId.of("Asia/Riyadh");
+    private static final Logger LOG = LoggerFactory.getLogger(OffersGridImpl.class);
 
     @ValueMapValue
     private String source;
@@ -68,8 +74,14 @@ public class OffersGridImpl implements OffersGrid {
         if (api == null) {
             return out;
         }
-        for (OfferDto dto : api.fetchOffers(limit)) {
-            out.add(new OfferDtoAdapter(dto));
+        try {
+            for (OfferDto dto : api.fetchOffers(limit)) {
+                out.add(new OfferDtoAdapter(dto));
+            }
+        } catch (RuntimeException e) {
+            // The bundled client never throws (ADR-0002); a replacement implementation might. A page must not.
+            LOG.warn("offers API client threw {}: rendering the fallback state", e.toString());
+            out.clear();
         }
         return out;
     }
@@ -80,7 +92,7 @@ public class OffersGridImpl implements OffersGrid {
         if (folder == null) {
             return out;
         }
-        LocalDate today = LocalDate.now();
+        LocalDate today = LocalDate.now(BUSINESS_ZONE);
         for (Resource child : folder.getChildren()) {
             if (out.size() >= limit) {
                 break;

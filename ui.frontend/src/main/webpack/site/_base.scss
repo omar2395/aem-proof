@@ -35,7 +35,7 @@ body {
     background-image:
         radial-gradient(1200px 600px at 85% -10%, rgba($saffron, .16), transparent 60%),
         radial-gradient(900px 500px at -10% 30%, rgba($teal, .08), transparent 60%);
-    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 a {
@@ -72,7 +72,7 @@ h1,
 h2,
 h3 {
     font-family: $font-display;
-    font-weight: 700;
+    font-weight: 800;
     line-height: 1.15;
     margin: 0;
     letter-spacing: 0; // never track Arabic

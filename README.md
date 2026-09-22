@@ -36,11 +36,29 @@ mvn clean install -PautoInstallSinglePackagePublish     # publish on :4503
 
 Or push the repo to a Cloud Manager Git remote; the project already follows the Cloud Service layout.
 
+## Testing
+
+`mvn -pl core verify` runs the Sling Model tests (AEM Mocks) and the integration tests (WireMock),
+then fails the build under 80 % line coverage. HTL scripts are validated by `htl-maven-plugin`,
+and the AEM Cloud Service analyser checks the final package. Details in
+[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#testing-strategy).
+
+## Design preview
+
+The front-end is a real client library with a static preview page, so the design can be seen
+without an AEM instance: [docs/PREVIEW.md](docs/PREVIEW.md).
+
+## Cloud Service or 6.5
+
+Generated for AEM as a Cloud Service; the only 6.5 changes are the API dependency and the secret
+placeholders, listed in [ADR-0001](docs/adr/0001-cloud-service-target.md).
+
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Decision records](docs/adr/)
 - [Contributing / local setup](docs/CONTRIBUTING.md)
+- [Static design preview](docs/PREVIEW.md)
 - [Changelog](CHANGELOG.md)
 
 ## A note on running it

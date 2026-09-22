@@ -11,7 +11,7 @@
     animation: title-in .7s $ease-out both;
     animation-delay: .1s;
 
-    // The saffron rule is a Readex-scale underline that only spans the first word's width on wide screens.
+    // The saffron rule is a display-scale underline that only spans the first word's width on wide screens.
     &::after {
         content: '';
         display: block;

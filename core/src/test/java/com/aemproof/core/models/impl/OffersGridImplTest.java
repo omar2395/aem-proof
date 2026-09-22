@@ -88,6 +88,15 @@ class OffersGridImplTest {
     }
 
     @Test
+    void throwingApiClientYieldsFallbackNotError() {
+        when(api.fetchOffers(anyInt())).thenThrow(new IllegalStateException("boom"));
+        OffersGrid g = model("api");
+        assertNotNull(g);
+        assertTrue(g.isEmpty());
+        assertEquals("لا توجد عروض حالياً", g.getFallbackText());
+    }
+
+    @Test
     void defaultsAreSafe() {
         OffersGrid g = model("defaults");
         assertEquals(OffersGrid.SOURCE_CF, g.getSource());

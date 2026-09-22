@@ -17,14 +17,14 @@ $ember:        #D64545;
 $line:         rgba(18, 19, 15, .12);
 
 //-- Type
-$font-display: 'Readex Pro', 'IBM Plex Sans Arabic', system-ui, sans-serif;
-$font-body:    'IBM Plex Sans Arabic', 'Readex Pro', system-ui, sans-serif;
+$font-display: 'Baloo Bhaijaan 2', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+$font-body:    'IBM Plex Sans Arabic', system-ui, sans-serif;
 $font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
 $font-size:    17px;
 $font-height:  1.65;
 
-// Arabic-safe scale: Readex Pro needs >= 13px to keep letter joins; nothing below 14 is used.
+// Arabic-safe scale: nothing below 14px, so letter joins stay intact in every face used.
 $fs-caption:   .8235rem;   // 14px
 $fs-small:     .9412rem;   // 16px
 $fs-body:      1rem;       // 17px
